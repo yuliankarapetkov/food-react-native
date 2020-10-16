@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 
 const SearchScreen = () => {
+    const [query, setQuery] = useState('');
+
     return (
         <View>
-            <SearchBar />
-            <Text>Hello!</Text>
+            <SearchBar
+                query={query}
+                onChange={value => setQuery(value)}
+            />
+            <Text>{query.length ? `Search for '${query}'..` : 'Type in something to start searching'}</Text>
         </View>
     );
 };
