@@ -11,6 +11,7 @@ const SearchScreen = () => {
             <SearchBar
                 query={query}
                 onChange={value => setQuery(value)}
+                onSubmit={() => console.log('submitted')}
             />
             <Text>{query.length ? `Search for '${query}'..` : 'Type in something to start searching'}</Text>
         </View>
