@@ -3,23 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
 
-import yelp from '../api/yelp';
+import useRestaurants from '../hooks/useRestaurants';
 
 const SearchScreen = () => {
     const [query, setQuery] = useState('');
-    const [restaurants, setRestaurants] = useState([]);
-
-    const searchRestaurants = async () => {
-        const { data: { businesses } } = await yelp.get('/search', {
-            params: {
-                limit: 50,
-                term: query,
-                location: 'san jose'
-            }
-        });
-
-        setRestaurants(businesses);
-    }
+    const [searchRestaurants, restaurants] = useRestaurants();
 
     return (
         <View>
