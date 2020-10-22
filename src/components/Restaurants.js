@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const ResultList = ({ title }) => {
+const Restaurants = ({ title, restaurants }) => {
     return (
         <View>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{title} ({restaurants.length})</Text>
         </View>
     );
 };
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ResultList;
+export default Restaurants;
