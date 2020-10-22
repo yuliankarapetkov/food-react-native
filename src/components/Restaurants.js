@@ -1,10 +1,22 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 const Restaurants = ({ title, restaurants }) => {
     return (
         <View>
             <Text style={styles.title}>{title} ({restaurants.length})</Text>
+            <FlatList
+                horizontal
+                data={restaurants}
+                keyExtractor={r => r.id}
+                renderItem={({ item }) => {
+                    return (
+                        <View>
+                            <Text>{item.name}</Text>
+                        </View>
+                    );
+                }}
+            />
         </View>
     );
 };
