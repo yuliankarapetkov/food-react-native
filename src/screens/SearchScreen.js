@@ -13,7 +13,7 @@ const SearchScreen = () => {
     const filterRestaurantsByPrice = price => restaurants.filter(r => r.price === price)
 
     return (
-        <View style={{ flex: 1 }}>
+        <>
             <SearchBar
                 query={query}
                 onChange={value => setQuery(value)}
@@ -27,7 +27,7 @@ const SearchScreen = () => {
                 <Restaurants restaurants={filterRestaurantsByPrice('$$')} title="Bit Pricier" />
                 <Restaurants restaurants={filterRestaurantsByPrice('$$$')} title="Big Spender" />
             </ScrollView>
-        </View>
+        </>
     );
 };
 
