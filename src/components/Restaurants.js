@@ -15,7 +15,7 @@ const Restaurants = ({ title, restaurants, navigation }) => {
                 keyExtractor={r => r.id}
                 renderItem={({ item }) => {
                     return (
-                        <TouchableOpacity onPress={() => navigation.navigate('Restaurant')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Restaurant', { id: item.id })}>
                             <Restaurant restaurant={item} />
                         </TouchableOpacity>
                     );
