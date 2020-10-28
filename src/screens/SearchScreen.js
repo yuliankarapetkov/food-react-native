@@ -6,7 +6,7 @@ import Restaurants from '../components/Restaurants'
 
 import useRestaurants from '../hooks/useRestaurants';
 
-const SearchScreen = ({ navigation }) => {
+const SearchScreen = () => {
     const [query, setQuery] = useState('');
     const [searchRestaurants, restaurants] = useRestaurants();
 
@@ -21,9 +21,9 @@ const SearchScreen = ({ navigation }) => {
             />
 
             <ScrollView>
-                <Restaurants restaurants={filterRestaurantsByPrice('$')} navigation={navigation} title="Cost Effective" />
-                <Restaurants restaurants={filterRestaurantsByPrice('$$')} navigation={navigation} title="Bit Pricier" />
-                <Restaurants restaurants={filterRestaurantsByPrice('$$')} navigation={navigation} title="Big Spender" />
+                <Restaurants restaurants={filterRestaurantsByPrice('$')} title="Cost Effective" />
+                <Restaurants restaurants={filterRestaurantsByPrice('$$')} title="Bit Pricier" />
+                <Restaurants restaurants={filterRestaurantsByPrice('$$')} title="Big Spender" />
             </ScrollView>
         </>
     );
