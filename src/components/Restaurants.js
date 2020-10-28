@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
 import Restaurant from './Restaurant'
 
-const Restaurants = ({ title, restaurants }) => {
+const Restaurants = ({ title, restaurants, navigation, onRestaurantPress }) => {
     return (
         <View style={styles.restaurants}>
             <Text style={styles.title}>{title} ({restaurants.length})</Text>
@@ -12,7 +12,13 @@ const Restaurants = ({ title, restaurants }) => {
                 showsHorizontalScrollIndicator={false}
                 data={restaurants}
                 keyExtractor={r => r.id}
-                renderItem={({ item }) => <Restaurant restaurant={item} />}
+                renderItem={({ item }) => {
+                    return (
+                        <TouchableOpacity onPress={() => navigation.navigate('Restaurant')}>
+                            <Restaurant restaurant={item} />
+                        </TouchableOpacity>
+                    );
+                }}
             />
         </View>
     );
